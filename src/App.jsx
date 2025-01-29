@@ -11,18 +11,14 @@ function App() {
       <header>
         <Navbar/>
       </header>
-      
+
       <body>
-        <div className="container">
-          <Home/>
-        </div>
+        <Home/>
       </body>
 
       <footer>
         <Footer/>
       </footer>
-
-
     </>
   )
 }

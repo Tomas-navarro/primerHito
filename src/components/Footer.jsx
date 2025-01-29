@@ -2,7 +2,7 @@
 
 const Footer = () => {
   return (
-    <p> © 2021-Pizzería MammaMia!-Todoslosderechos reservados</p>
+    <p> © 2021-Pizzería MammaMia! - Todos los derechos reservados</p>
   )
 }
 
