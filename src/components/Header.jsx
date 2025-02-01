@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <>
         <div className="imagenFondo">
-            <img src={headerImg} alt="Imagen de fondo" />
+           {/* <img src={headerImg} alt="Imagen de fondo" />*/} 
             <h1 className='textCenter'>!Pizzería Mamma Mia!</h1>
             <p className='textCenter'>!Tenemos las mejores pizzas que podras encontrar!</p>
         </div>
