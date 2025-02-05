@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
 import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   
@@ -12,14 +13,11 @@ function App() {
       <header>
         <Navbar/>
       </header>
-
-
        {/* <Home/> */}
-       <body>
-          <Login/>
+       <body>    
+         <Register/>
+         {/* <Login/>*/}
        </body>
-
-
       <footer>
         <Footer/>
       </footer>
