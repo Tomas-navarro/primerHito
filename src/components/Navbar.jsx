@@ -10,7 +10,6 @@ const Navbar = () => {
                     <a className="navbar-brand" href="#">Pizzería Mamma Mia!</a>
                     <div className="navbar-nav gap-3 d-flex flex-row">
                         <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🍕Home</a>
-                        <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔐Profile</a>
                         {token ? (
                             <>
                                 <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔐 Profile</a>

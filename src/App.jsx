@@ -3,18 +3,22 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
+import Login from './components/Login';
 
 function App() {
-
+  
   return (
     <>
       <header>
         <Navbar/>
       </header>
 
-      <body>
-        <Home/>
-      </body>
+
+       {/* <Home/> */}
+       <body>
+          <Login/>
+       </body>
+
 
       <footer>
         <Footer/>
