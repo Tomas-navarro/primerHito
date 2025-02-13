@@ -3,23 +3,26 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
-import Login from './components/Login';
-import Register from './components/Register';
+import Cart from './components/Cart';
+//import Login from './components/Login';
+//import Register from './components/Register';
 
 function App() {
-  
+
   return (
     <>
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
-       {/* <Home/> */}
-       <body>    
-         <Register/>
-         {/* <Login/>*/}
-       </body>
+      <body>
+
+        {/*<Register/>*/}
+        {/* <Login/>*/}
+        {/*<Home/>*/}
+        <Cart />
+      </body>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </>
   )

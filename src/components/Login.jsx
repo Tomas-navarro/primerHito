@@ -49,7 +49,7 @@ const Login = () => {
                 <form className="formulario" onSubmit={ValidarInput}>
                     <div className="form-group d-flex flex-column">
                         <label className='p-2'>Email</label>
-                        <input className="form-control" name="email" onChange={handleChange} />
+                        <input className="form-control" name="email" type="email" onChange={handleChange} />
                         <label className='p-2'>Password</label>
                         <input className="form-control" name="password" onChange={handleChange} />
                         <button className="btn btn-dark m-5" type="submit" onClick={handleResults}>Enviar</button>
