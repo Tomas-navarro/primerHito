@@ -81,3 +81,14 @@ footer{
   justify-content: center;
   align-items: center;
 }
+.cardPizza{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh; /* Esto asegura que el contenedor tenga la altura de la ventana */
+}
