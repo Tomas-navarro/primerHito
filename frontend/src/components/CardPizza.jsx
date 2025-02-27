@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const CardPizza = ({ name, price, ingredients, img }) => {
 
@@ -11,8 +12,8 @@ const CardPizza = ({ name, price, ingredients, img }) => {
                     <p className="card-text text-center">🍕{ingredients.map(ingredients => <li>{ingredients}</li>)}</p>
                     <h4 className="card-title text-center">Precio: ${price.toLocaleString()}</h4>
                     <div className="footerCard">
-                        <a href="#" className="btn btn-light">Ver Más 👀</a>
-                        <a href="#" className="btn btn-dark">Añadir 🛒</a>
+                        <Link to="/pizza/p001"className="btn btn-light">Ver Más 👀</Link>
+                        <Link to="/pizza/p001"className="btn btn-dark">Añadir 🛒</Link>
                     </div>
                 </div>
             </div>

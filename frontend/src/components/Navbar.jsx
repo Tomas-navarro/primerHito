@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const total = 25000;
@@ -7,22 +8,21 @@ const Navbar = () => {
         <>
             <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
                 <div className="d-flex justify-content-between align-items-center">
-                    <a className="navbar-brand" href="#">Pizzería Mamma Mia!</a>
+                    <Link to="/" className="navbar-brand">Pizzería Mamma Mia!</Link>
                     <div className="navbar-nav gap-3 d-flex flex-row">
-                        <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🍕Home</a>
+                        <Link to="/" className="nav-link active border border-light px-2 rounded" aria-current="page">🍕Home</Link>
                         {token ? (
                             <>
-                                <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔐 Profile</a>
-                                <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔐 Logout</a>
+                                <Link to="/profile" className="nav-link active border border-light px-2 rounded" aria-current="page">🔐Profile</Link>
+                                <Link to="/" className="nav-link active border border-light px-2 rounded" aria-current="page">🔐Logout</Link>
                             </>
                         ) : (
                             <>
-                                <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔓 Login</a>
-                                <a className="nav-link active border border-light px-2 rounded" aria-current="page" href="#">🔓 Register</a>
+                                <Link to="/login" className="nav-link active border border-light px-2 rounded" aria-current="page">🔓 Login</Link>
+                                <Link to="/register" className="nav-link active border border-light px-2 rounded" aria-current="page">🔓 Register</Link>
                             </>
                         )}
-
-                        <a className="nav-link active border border-info rounded text-info position-absolute px-2 top-0 end-0 me-2 mt-2" aria-current="page" href="#">🛒 Total: ${total.toLocaleString()}</a>
+                        <Link to="/cart" className="nav-link active border border-info rounded text-info position-absolute px-2 top-0 end-0 me-2 mt-2" aria-current="page">🛒 Total: ${total.toLocaleString()}</Link>
                     </div>
                 </div>
             </nav>

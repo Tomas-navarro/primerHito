@@ -41,22 +41,24 @@ const Register = () => {
         // Si todo está correcto
         mostrarAlerta("Usuario Registrado!", "", "success");
     };
-    
+
     return (
         <>
-            <h1 className='text-center'>Register</h1>
-            <div className="container mt-5" style={{maxWidth:"400px"}}>
-                <form className="formulario" onSubmit={ValidarInput}>
-                    <div className="form-group d-flex flex-column">
-                        <label className='p-2'>Email</label>
-                        <input className="form-control" name="email" onChange={handleChange} value={register.email} />
-                        <label className='p-2'>Password</label>
-                        <input className="form-control" name="password" type='Password' onChange={handleChange} value={register.password} />
-                        <label className='p-2'>Confirmar Password</label>
-                        <input className="form-control" name="confirmpassword" type='Password' onChange={handleChange} value={register.confirmpassword} />
-                        <button className="btn btn-dark m-5" type="submit" onClick={handleResults}>Enviar</button>
-                    </div>
-                </form>
+            <div className="body">
+                <h1 className='text-center'>Register</h1>
+                <div className="container mt-5" style={{ maxWidth: "400px" }}>
+                    <form className="formulario" onSubmit={ValidarInput}>
+                        <div className="form-group d-flex flex-column">
+                            <label className='p-2'>Email</label>
+                            <input className="form-control" name="email" onChange={handleChange} value={register.email} />
+                            <label className='p-2'>Password</label>
+                            <input className="form-control" name="password" type='Password' onChange={handleChange} value={register.password} />
+                            <label className='p-2'>Confirmar Password</label>
+                            <input className="form-control" name="confirmpassword" type='Password' onChange={handleChange} value={register.confirmpassword} />
+                            <button className="btn btn-dark m-5" type="submit" onClick={handleResults}>Enviar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </>
     )

@@ -30,7 +30,7 @@ const Login = () => {
             if (!register[campo]) { // Equivalente a register[campo] === ''
                 return mostrarAlerta("Campo vacío", mensaje, "error");
             }
-        }  
+        }
         // Validar contraseñas
         if (register.password.length < 6) {
             return mostrarAlerta("Oops...", "Contraseña muy corta! Debe tener 6 o más caracteres", "question");
@@ -44,17 +44,19 @@ const Login = () => {
     }
     return (
         <>
-            <div className="container mt-5" style={{maxWidth:"400px"}}>
+            <div className="body">
                 <h1 className='text-center'>Login</h1>
-                <form className="formulario" onSubmit={ValidarInput}>
-                    <div className="form-group d-flex flex-column">
-                        <label className='p-2'>Email</label>
-                        <input className="form-control" name="email" type="email" onChange={handleChange} />
-                        <label className='p-2'>Password</label>
-                        <input className="form-control" name="password" onChange={handleChange} />
-                        <button className="btn btn-dark m-5" type="submit" onClick={handleResults}>Enviar</button>
-                    </div>
-                </form>
+                <div className="container mt-5" style={{ maxWidth: "400px" }}>
+                    <form className="formulario" onSubmit={ValidarInput}>
+                        <div className="form-group d-flex flex-column">
+                            <label className='p-2'>Email</label>
+                            <input className="form-control" name="email" type="email" onChange={handleChange} />
+                            <label className='p-2'>Password</label>
+                            <input className="form-control" name="password" onChange={handleChange} />
+                            <button className="btn btn-dark m-5" type="submit" onClick={handleResults}>Enviar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </>
