@@ -1,24 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import CardPizza from '../components/CardPizza'
 import Header from '../components/Header';
+import { HomeContext } from '../context/HomeContext';
 //import { pizzas } from "/src/assets/js/pizzas.js";
 
 const Home = () => {
-  const [info, setInfo] = useState([])
-  useEffect(()=>{
-    consultarApi()
-  },[])
-
-
-  const consultarApi = async () => {
-    const url = "http://localhost:5000/api/pizzas";
-    const response = await fetch(url);
-    const data = await response.json();
-    setInfo(data);
-  };  
+  const {info} =useContext(HomeContext)
   return (
     <>
-
       <div className="containerHome">
         <div className="containerHeader">
            <Header/>
