@@ -9,17 +9,17 @@ const Cart = () => {
         <div className="body">
             <div className="container">
                 <div className="card" style={{ width: "80rem", marginTop: "20px" }}>
-                    <div className="card-body">
+                    <div className="card-body row">
                         <h5 className="card-title">Detalles del pedido:</h5>
                         <ul>
                             {cart.map((pizza) => (
                                 <li className="listaCart" key={pizza.id}>
-                                    <img className="pizzaCart" src={pizza.img} alt={pizza.name} />
-                                    <p className="card-text">{pizza.name}</p>
-                                    <p className="card-text">${pizza.price.toLocaleString()}</p>
-                                    <button type="button" onClick={() => addProduct(pizza.id)} className="btn btn-outline-primary">+</button>
-                                    <p className="card-text">{pizza.count}</p>
-                                    <button type="button" onClick={() => subtractProduct(pizza.id)} className="btn btn-outline-danger">-</button>
+                                    <img className="pizzaCart col-2" src={pizza.img} alt={pizza.name} />
+                                    <p className="card-text col-2">{pizza.name}</p>
+                                    <p className="card-text col-2">${pizza.price.toLocaleString()}</p>
+                                    <button type="button col-2" onClick={() => addProduct(pizza.id)} className="btn btn-outline-primary">+</button>
+                                    <p className="card-text text-center col-2">{pizza.count}</p>
+                                    <button type="button col-2" onClick={() => subtractProduct(pizza.id)} className="btn btn-outline-danger">-</button>
                                 </li>
                             ))}
                         </ul>
