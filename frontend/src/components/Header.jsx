@@ -1,5 +1,3 @@
-import headerImg from '../assets/img/Header.jpg';
-
 const Header = () => {
   return (
     <>

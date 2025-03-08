@@ -1,30 +1,9 @@
-import { useState } from "react";
-import { pizzaCart } from "../assets/js/pizzas.js";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 
 const Cart = () => {
-    const [cart, setCart] = useState(pizzaCart);
-
-    const addProduct = (id) => {
-        setCart((prevCart) =>
-            prevCart.map((pizza) =>
-                pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza
-            )
-        );
-    };
-
-    const subtractProduct = (id) => {
-        setCart((prevCart) =>
-            prevCart
-                .map((pizza) =>
-                    pizza.id === id && pizza.count > 0
-                        ? { ...pizza, count: pizza.count - 1 }
-                        : pizza
-                )
-                .filter((pizza) => pizza.count > 0)
-        );
-    };
-
-    const totalPrice = cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0);
+   const {cart, addProduct, subtractProduct, totalPrice} = useContext(CartContext) // consumo el context
 
     return (
         <div className="body">

@@ -10,12 +10,12 @@ const Home = () => {
   },[])
 
 
-  const consultarApi = async () =>{
-    const url = "http://localhost:5000/api/pizzas"
-    const response = await fetch(url)
-    const data = await response.json()
-    setInfo(data)
-  }
+  const consultarApi = async () => {
+    const url = "http://localhost:5000/api/pizzas";
+    const response = await fetch(url);
+    const data = await response.json();
+    setInfo(data);
+  };  
   return (
     <>
 
@@ -25,7 +25,7 @@ const Home = () => {
         </div>
         
         <div className="containerPizzas">
-          {info.map((info)=><CardPizza key={info.id} name={info.name} price={info.price} ingredients={info.ingredients} img={info.img}/>)}
+          {info.map((info)=><CardPizza key={info.id} id={info.id} name={info.name} price={info.price} ingredients={info.ingredients} img={info.img}/>)}
         </div>
       </div>
     </>
