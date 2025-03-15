@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 
 
 const Cart = () => {
-   const {cart, addProduct, subtractProduct, totalPrice} = useContext(CartContext) // consumo el context
-
+    const { cart, addProduct, subtractProduct, totalPrice } = useContext(CartContext) // consumo el context
+    const { user } = useContext(UserContext);
     return (
         <div className="body">
             <div className="container">
@@ -25,9 +26,11 @@ const Cart = () => {
                         </ul>
                         <div className="card-footer">
                             <h2>Total: ${totalPrice.toLocaleString()}</h2>
-                            <button type="button" className="btn btn-dark" style={{ marginTop: "20px" }}>
-                                Pagar
-                            </button>
+                            {
+                            user ? (
+                                <button type="button" className="btn btn-dark" style={{ marginTop: "20px" }}>Pagar</button>
+                            ) : (<button type="button" className="btn btn-dark" disabled style={{ marginTop: "20px" }}>Pagar</button>)
+                            }
                         </div>
                     </div>
                 </div>

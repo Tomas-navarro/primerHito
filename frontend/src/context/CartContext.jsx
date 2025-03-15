@@ -32,7 +32,6 @@ const CartProvider = ({ children }) => {
         );
     };
     const totalPrice = cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0);
-    
     // const para exportar todo de una vez
     const stateGlobal={
         cart,

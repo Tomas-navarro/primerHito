@@ -1,32 +1,34 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useState, useEffect } from "react";
 
 export const PizzaContext = createContext();
-const PizzaProvider = ({children}) => {
 
-  const [info, setInfo] = useState([]);
+const PizzaProvider = ({ children }) => {
+  const [pizza, setPizza] = useState(null);
 
-  useEffect(() => {
-    consultarPizza();
-  }, []);
-
-  const consultarPizza = async () => {
+  const getPizzaById = async (id) => {
     try {
-      const url = `http://localhost:5000/api/pizzas/p001`;
+      const url = `http://localhost:5000/api/pizzas/${id}`;
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("No se encontró la pizza");
+      }
       const data = await response.json();
-      setInfo(data);
+      setPizza(data);
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
-  }
-  const stateGlobal={
-    info
-  }
-  return (
-      <PizzaContext.Provider value={stateGlobal}>
-        {children}
-      </PizzaContext.Provider>
-  )
-}
+  };
 
-export default PizzaProvider
+  const stateGlobal = {
+    pizza,
+    getPizzaById, // Expone la función en el contexto
+  };
+
+  return (
+    <PizzaContext.Provider value={stateGlobal}>
+      {children}
+    </PizzaContext.Provider>
+  );
+};
+
+export default PizzaProvider;

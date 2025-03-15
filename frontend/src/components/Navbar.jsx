@@ -1,10 +1,21 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 
 const Navbar = () => {
     const {totalPrice} = useContext(CartContext)
-    const token = false;
+    const {user, logout} = useContext(UserContext)
+
+    const navigate = useNavigate()
+    const handleLogout = () => {
+        console.log("Ejecutando logout...");
+        logout();
+        console.log("Redirigiendo a /login...");
+        setTimeout(() => navigate("/login"), 100);
+    };
+    
+    const setActiveClass = ({isActive}) => (isActive ? "nav-link active border border-light px-2 rounded" : "nav-link border border-light px-2 rounded") 
     
     return (
         <>
@@ -12,19 +23,19 @@ const Navbar = () => {
                 <div className="d-flex justify-content-between align-items-center">
                     <Link to="/" className="navbar-brand">Pizzería Mamma Mia!</Link>
                     <div className="navbar-nav gap-3 d-flex flex-row">
-                        <Link to="/" className="nav-link active border border-light px-2 rounded" aria-current="page">🍕Home</Link>
-                        {token ? (
+                        <NavLink to="/" className={setActiveClass} aria-current="page">🍕Home</NavLink>
+                        {user ? (
                             <>
-                                <Link to="/profile" className="nav-link active border border-light px-2 rounded" aria-current="page">🔐Profile</Link>
-                                <Link to="/" className="nav-link active border border-light px-2 rounded" aria-current="page">🔐Logout</Link>
+                                <NavLink to="/profile" className={setActiveClass} aria-current="page">🔐Profile</NavLink>
+                                <NavLink className={setActiveClass} onClick={handleLogout} aria-current="page">🔐Logout</NavLink>
                             </>
                         ) : (
                             <>
-                                <Link to="/login" className="nav-link active border border-light px-2 rounded" aria-current="page">🔓 Login</Link>
-                                <Link to="/register" className="nav-link active border border-light px-2 rounded" aria-current="page">🔓 Register</Link>
+                                <NavLink to="/login" className={setActiveClass} aria-current="page">🔓 Login</NavLink>
+                                <NavLink to="/register" className={setActiveClass} aria-current="page">🔓 Register</NavLink>
                             </>
                         )}
-                        <Link to="/cart" className="nav-link active border border-info rounded text-info position-absolute px-2 top-0 end-0 me-2 mt-2" aria-current="page">🛒 Total: ${totalPrice.toLocaleString()}</Link>
+                        <NavLink to="/cart" className="nav-link active border border-info rounded text-info position-absolute px-2 top-0 end-0 me-2 mt-2" aria-current="page">🛒 Total: ${totalPrice.toLocaleString()}</NavLink>
                     </div>
                 </div>
             </nav>

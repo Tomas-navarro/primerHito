@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Card = ({ desc, img, ingredients = [], name, price = 0 }) => {
     return (
         <>

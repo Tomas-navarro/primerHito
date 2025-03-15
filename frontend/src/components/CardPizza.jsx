@@ -14,7 +14,7 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
                     <div className="card-text text-center"><ul>{ingredients.map((ingredient, index) => (<li key={index}>🍕 {ingredient}</li>))}</ul></div>
                     <h4 className="card-title text-center">Precio: ${price.toLocaleString()}</h4>
                     <div className="footerCard">
-                        <Link to="/pizza/p001" className="btn btn-light">Ver Más 👀</Link>
+                        <Link to={`/pizza/${id}`}  className="btn btn-light">Ver Más 👀</Link>
                         <button type="button" onClick={() => addProduct(id)} className="btn btn-dark">Añadir 🛒</button>
                     </div>
                 </div>
