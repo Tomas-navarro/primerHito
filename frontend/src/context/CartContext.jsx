@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { pizzas } from "../assets/js/pizzas.js";
+import axios  from "axios";
 
 export const CartContext = createContext();
 
@@ -31,13 +32,29 @@ const CartProvider = ({ children }) => {
                 .filter((pizza) => pizza.count > 0)
         );
     };
+    const cartCheckout = async (cart) => {
+        const token = localStorage.getItem('token')
+        try{
+            const res = await axios.post('http://localhost:5000/api/checkouts',
+                {cart},
+                {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                }
+            });
+        }catch(error){
+            console.error(error)
+        }
+    }
     const totalPrice = cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0);
     // const para exportar todo de una vez
     const stateGlobal={
         cart,
         addProduct,
         subtractProduct,
-        totalPrice
+        totalPrice,
+        cartCheckout
       }
     return (
         <CartContext.Provider value={stateGlobal}>

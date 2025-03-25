@@ -1,11 +1,20 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { UserContext } from "../context/UserContext";
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 
 const Cart = () => {
-    const { cart, addProduct, subtractProduct, totalPrice } = useContext(CartContext) // consumo el context
+    const { cart, addProduct, subtractProduct, totalPrice, cartCheckout } = useContext(CartContext) // consumo el context
     const { user } = useContext(UserContext);
+    const mostrarAlerta = (title, text, icon) => {
+        Swal.fire({ title, text, icon });
+    };
+    const handleCart = () => {
+        cartCheckout(cart)
+        mostrarAlerta("Carrito Pagado", "", "success");
+    }
     return (
         <div className="body">
             <div className="container">
@@ -27,9 +36,9 @@ const Cart = () => {
                         <div className="card-footer">
                             <h2>Total: ${totalPrice.toLocaleString()}</h2>
                             {
-                            user ? (
-                                <button type="button" className="btn btn-dark" style={{ marginTop: "20px" }}>Pagar</button>
-                            ) : (<button type="button" className="btn btn-dark" disabled style={{ marginTop: "20px" }}>Pagar</button>)
+                                user ? (
+                                    <button type="button" className="btn btn-dark" onClick={handleCart} style={{ marginTop: "20px" }}>Pagar</button>
+                                ) : (<button type="button" className="btn btn-dark" disabled style={{ marginTop: "20px" }}>Pagar</button>)
                             }
                         </div>
                     </div>
